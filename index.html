@@ -1,0 +1,68 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw4_3</title>
+
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #container div {  
+            width: 300px;
+        }
+
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            margin: 2em auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        let divNumber = prompt('How many blocks?', '1');
+        let imgNumber = prompt('How many pictures?', '1-11');
+
+        let container = document.getElementById('container');
+
+        for (let block = 1; block <= divNumber; block++) {
+            div = document.createElement('div');
+
+            for (pic = 1; pic <= imgNumber; pic++) {
+                img = document.createElement('div');
+                div.append(img);
+                img.innerHTML = `<img src="../images/${pic}.jpg" alt="">`;
+            }
+            container.append(div)
+        }
+
+        function randomColor() {
+            let colors = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+            let s = '#';
+            for (i=0; i<6; i++) {
+            item = Math.floor(Math.random()*colors.length);
+            s += colors[item];
+            }  
+
+            document.getElementById("container").style.background = s;
+
+        } randomColor(); 
+
+        // create <div>
+        // fill with random color
+        // place <img> into the center of <div>
+        // using loops and functions
+    </script>
+    
+</body>
+</html>
