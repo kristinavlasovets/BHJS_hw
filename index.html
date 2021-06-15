@@ -1,110 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>CINEMA</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-        .card {
-            margin: 0 auto;
-            height: 675px;
-            width: 300px;
-            padding-top: 10px;
-            border: black solid 1px;
-        }
-        .container {
-            height: 655px;
-            width: 280px;
-            margin: 0 auto;
-            font-family: 'Oswald', sans-serif;
-            text-align: center;
-        }
-        h1 {
-            margin: 0;
-            color: #616161;
-            line-height: 1;
-            font-size: 30px;
-        }
-        h2 {
-            font-size: 30px;
-            margin: 10px 0;
-        }
-        span {
-            font-size: 19px;
-            color: #616161;
-            text-decoration: line-through; 
-        }
+      #wrapper {
+        display: flex;
+        justify-content: space-around;
+      }
 
-        .rating-area {
-            overflow: hidden;
-            width: 280px;
-            display: flex;
-            justify-content: center;
-            flex-direction: row-reverse;
-            margin: 10px auto;
-        }
-        .rating-area:not(:checked) > input {
-            display: none;
-        }
-        .rating-area:not(:checked) > label {
-            float: right;
-            width: 42px;
-            padding: 0;
-            cursor: pointer;
-            font-size: 32px;
-            line-height: 32px;
-            color: lightgrey;
-            text-shadow: 1px 1px #bbb;
-        }
-        .rating-area:not(:checked) > label:before {
-            content: '★';
-        }
-        .rating-area > input:checked ~ label {
-            color: gold;
-            text-shadow: 1px 1px #c60;
-        }
-        .rating-area:not(:checked) > label:hover,
-        .rating-area:not(:checked) > label:hover ~ label {
-            color: gold;
-        }
-        .rating-area > input:checked + label:hover,
-        .rating-area > input:checked + label:hover ~ label,
-        .rating-area > input:checked ~ label:hover,
-        .rating-area > input:checked ~ label:hover ~ label,
-        .rating-area > label:hover ~ input:checked ~ label {
-            color: gold;
-            text-shadow: 1px 1px goldenrod;
-        }
-        .rate-area > label:active {
-            position: relative;
-        }
+      #card {
+        margin: 0 auto;
+        height: auto;
+        width: 300px;
+        padding-top: 10px;
+        border: black solid 1px;
+        font-family: 'Oswald', sans-serif;
+        text-align: center;
+      }
+      #poster {
+        width: 280px;
+        height: 420px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 10px;
+        color: #616161;
+        line-height: 1;
+        font-size: 30px;
+      }
+      #allprice {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      #allprice :nth-child(1) {
+        font-size: 30px;
+        margin: 0;
+      }
+      #allprice :nth-child(2) {
+        font-size: 19px;
+        color: #616161;
+        text-decoration: line-through;
+        line-height: 2;
+        padding-left: 20px;
+      }
+      .material-icons {
+        font-size: 32px;
+        color: #ffc400;
+      }
+      .blue {
+        transform: translate(60px, -280px);
+        position: relative;
+        overflow: hidden;
+      }
+      #saleimg {
+        transform: translate(-130px, -90px);
+        position: relative;
+        overflow: hidden;
+      }
     </style>
-</head>
-<body>
-    <div class="card">
-        <div class="container">
-            <img src="../BHJS_hw/images/pets.png" alt="">
-            <h1>Тайная жизнь домашних животных 2</h1>
-            <h2>45,00 руб. <span>50,00 руб.</span></h2>
-            <div class="rating-area">
-                <input type="radio" id="star-5" name="rating" value="5">
-                <label for="star-5" title="Оценка «5»"></label>	
-                <input type="radio" id="star-4" name="rating" value="4">
-                <label for="star-4" title="Оценка «4»"></label>    
-                <input type="radio" id="star-3" name="rating" value="3">
-                <label for="star-3" title="Оценка «3»"></label>  
-                <input type="radio" id="star-2" name="rating" value="2">
-                <label for="star-2" title="Оценка «2»"></label>    
-                <input type="radio" id="star-1" name="rating" value="1">
-                <label for="star-1" title="Оценка «1»"></label>
-            </div>
-            <a href="#"><img src="../BHJS_hw/images/btnpet.png" alt=""></a>
+  </head>
+  <body>
+<img src="../BHJS_hw/images/" alt="">
+    <div id="wrapper">
+      <!-- <div id="card">
+        <div id="poster">
+        <img class="main" src="../BHJS_hw/images/pets.png" alt="" />
+        <img class="blue" src="../BHJS_hw/images/blueray.png" alt="" />
+        <img id="saleimg" src="../BHJS_hw/images/sale.png" alt="" />
+      </div>
+      
+        <h1>Тайная жизнь домашних животных 2</h1>
+        <div id="allprice">
+          <div>45,00 руб.</div><div class="price">50,00 руб.</div>
         </div>
+
+      <div id="rank">
+        <span class="material-icons"> star </span>
+        <span class="material-icons"> star </span>
+        <span class="material-icons"> star </span>
+        <span class="material-icons"> star_half </span>
+        <span class="material-icons"> star_border </span>
+      </div>
+      <a href="#"><img src="../BHJS_hw/images/btnpet.jpg" alt="" /></a>
+      </div> -->
     </div>
-   
-</body>
+
+    <script>
+      let s = '';
+
+      // Add 3  different cards
+
+      let arr = [
+        {
+          cardItem: {
+            msource: 'pets.png',
+            bsource: 'blueray.png',
+            ssource: 'sale.png',
+            title: 'Тайная жизнь домашних животных 2',
+            price: '17',
+            sale: '0.9',
+            action: false,
+            rating: 3,
+          },
+        },
+        {
+          cardItem: {
+            msource: 'toy4.jpg',
+            bsource: 'blueray.png',
+            ssource: 'sale.png',
+            title: 'История игрушек 4 <br> Приключения Вилкинса',
+            price: '19',
+            sale: '0.9',
+            action: false,
+            rating: 2,
+          },
+        },
+        {
+          cardItem: {
+            msource: 'ferd.jpg',
+            bsource: 'blueray.png',
+            ssource: 'sale.png',
+            title: 'Фердинанд <br> Побег из коровника',
+            price: '25',
+            sale: '0.9',
+            action: true,
+            rating: 4.5,
+          },
+        },
+      ];
+
+      for (j = 0; j < arr.length; j++) {
+        msource = arr[j].cardItem.msource;
+        bsource = arr[j].cardItem.bsource;
+        ssource = arr[j].cardItem.ssource;
+        title = arr[j].cardItem.title;
+        price = arr[j].cardItem.price;
+        sale = arr[j].cardItem.sale;
+        action = arr[j].cardItem.action;
+        rating = arr[j].cardItem.rating;
+
+        let lowPrice = Math.round(price * sale);
+
+        let doAction = '';
+
+        if (action) {
+          doAction = `<div>${lowPrice},00 руб.</div>`;
+        }
+
+        let stars = '';
+        for (i = 0; i < rating - 0.5; i++) {
+          stars += '<span class="material-icons"> star </span>';
+        }
+        for (o = 0; o <= rating - i - 0.5; o++) {
+          stars += '<span class="material-icons"> star_half </span>';
+        }
+        for (e = 0; e < 5 - rating - 0.5; e++) {
+          stars += '<span class="material-icons"> star_border </span>';
+        }
+
+        s += `
+      <div id="card">
+          <div id="poster">
+            <img class="main" src="../BHJS_hw/images/${msource}" alt="" />
+            <img class="blue" src="../BHJS_hw/images/${bsource}" alt="" />
+            <img id="saleimg" src="../BHJS_hw/images/${ssource}" alt="" />
+          </div>
+        
+            <h1>${title}</h1>
+          <div id="allprice">
+                ${doAction}
+                <div class="price">${price},00 руб.</div>
+          </div>
+
+          <div id="rank">
+            ${stars}
+          </div>
+          <a href="#"><img src="../BHJS_hw/images/btnpet.jpg" alt="" /></a>
+      </div>
+      `;
+      }
+
+      wrapper.innerHTML = s;
+
+      // Attempt to write code for switching Sales pictures
+
+      if (arr[0].cardItem.action) {
+        document.images[2].style.opacity = '1';
+      } else {
+        document.images[2].style.opacity = '0';
+      }
+      if (arr[1].cardItem.action) {
+        document.images[6].style.opacity = '1';
+      } else {
+        document.images[6].style.opacity = '0';
+      }
+      if (arr[2].cardItem.action) {
+        document.images[10].style.opacity = '1';
+      } else {
+        document.images[10].style.opacity = '0';
+      }
+    </script>
+  </body>
 </html>
