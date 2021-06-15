@@ -23,7 +23,9 @@
         height: auto;
         width: 300px;
         padding-top: 10px;
-        border: black solid 1px;
+        box-shadow: 0 15px 30px 0 rgba(255, 49, 49, 0.11),
+                    0 5px 15px 0 rgba(141, 0, 0, 0.08);
+        background-color: #ffffff;
         font-family: 'Oswald', sans-serif;
         text-align: center;
       }
@@ -197,19 +199,19 @@
       // Attempt to write code for switching Sales pictures
 
       if (arr[0].cardItem.action) {
-        document.images[2].style.opacity = '1';
+        document.images[3].style.opacity = '1';
       } else {
-        document.images[2].style.opacity = '0';
+        document.images[3].style.opacity = '0';
       }
       if (arr[1].cardItem.action) {
-        document.images[6].style.opacity = '1';
+        document.images[7].style.opacity = '1';
       } else {
-        document.images[6].style.opacity = '0';
+        document.images[7].style.opacity = '0';
       }
       if (arr[2].cardItem.action) {
-        document.images[10].style.opacity = '1';
+        document.images[11].style.opacity = '1';
       } else {
-        document.images[10].style.opacity = '0';
+        document.images[11].style.opacity = '0';
       }
     </script>
   </body>
