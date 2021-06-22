@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>HW7</title>
+  </head>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+    #container {
+      margin: 0;
+      height: fit-content;
+      background: url(https://images.unsplash.com/photo-1578849278619-e73505e9610f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1575&q=80)
+        no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: space-around;
+    }
+    .form-inner {
+      max-width: 370px;
+      margin: 50px auto 50px;
+      padding: 20px;
+      background: #fffdee;
+      border: 10px solid transparent;
+      border-image: 10
+        repeating-linear-gradient(
+          135deg,
+          #a12020,
+          #a12020 10px,
+          transparent 10px,
+          transparent 20px,
+          #fdfdfd 20px,
+          #ffffff 30px,
+          transparent 30px,
+          transparent 40px
+        );
+      font-family: 'Playfair Display';
+      color: #605756;
+    }
+    .form-row {
+      margin-bottom: 15px;
+    }
+    .form-row input,
+    select {
+      width: 100%;
+      padding: 0 10px;
+      line-height: 35px;
+      border-width: 0;
+      outline: none;
+      background: transparent url(../hw7/images/bg-form.png) bottom left
+        repeat-x;
+      background-size: 10px 35px;
+      font-family: 'Playfair Display';
+    }
+    .form-row select {
+      font-size: 18px;
+      padding: 10px 20px;
+      color: #605756;
+    }
+    #create__btn {
+      display: block;
+      margin: 15px auto;
+      align-self: center;
+      padding: 20px 40px;
+      background: #a12020;
+      border-width: 0;
+      cursor: pointer;
+      font-family: 'Playfair Display';
+      font-size: 20px;
+      letter-spacing: 1px;
+      color: #fffdee;
+      text-transform: uppercase;
+      transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    #create__btn:hover {
+      background: #c42061;
+    }
+
+    /* cards HTML code */
+
+    #cards {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #wrapper {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #card {
+      margin: 0 auto;
+      height: auto;
+      width: 300px;
+      padding-top: 10px;
+      box-shadow: 0 15px 30px 0 rgba(255, 49, 49, 0.11),
+        0 5px 15px 0 rgba(141, 0, 0, 0.08);
+      background-color: #ffffff;
+      font-family: 'Oswald', sans-serif;
+      text-align: center;
+    }
+    #poster {
+      width: 280px;
+      height: 420px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 10px;
+      color: #616161;
+      line-height: 1;
+      font-size: 30px;
+    }
+    #allprice {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    #allprice :nth-child(1) {
+      font-size: 30px;
+      margin: 0;
+    }
+    #allprice :nth-child(2) {
+      font-size: 19px;
+      color: #616161;
+      text-decoration: line-through;
+      line-height: 2;
+      padding-left: 20px;
+    }
+    .material-icons {
+      font-size: 32px;
+      color: #ffc400;
+    }
+    .blue {
+      transform: translate(60px, -280px);
+      position: relative;
+      overflow: hidden;
+    }
+    #saleimg {
+      transform: translate(-130px, -90px);
+      position: relative;
+      overflow: hidden;
+    }
+    #card:hover {
+      -webkit-box-shadow: 10px 7px 16px 6px rgba(58, 24, 24, 0.95);
+      box-shadow: 10px 7px 16px 6px rgba(58, 24, 24, 0.95);
+    }
+    .btn:hover {
+      transform: translateY(-10px);
+    }
+  </style>
+  <body>
+    <div id="container">
+      <!-- <form name="my">
+        <div class="stripes-block"></div>
+        <div class="form-inner">
+          <div class="form-row">
+            <label for="cinema">Choose the cinema</label>
+            <select id="cinema" name="msource">
+              <option value="pets.png" selected>The Secret Life of Pets 2</option>
+              <option value="toy4.jpg">Toy Story 4</option>
+              <option value="ferd.jpg">Ferdinand</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="name">Cinema name</label>
+            <input type="text" name="name" value="" placeholder="The Secret Life of Pets 2" required></input>
+          </div>
+          <div class="form-row">
+            <label for="fullprice">Full price, BYN</label>
+            <input type="text" name="fullprice" placeholder="19" required></input>
+          </div>
+
+          <div class="form-row">
+            <label for="onsale">Is it on Sale?</label>
+            <select id="sale" name="onsale">
+              <option value="true" selected>Yes (fill the % below)</option>
+              <option value="false">No (skip next line)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="saleprc">Sale, %</label>
+            <input type="text" name="saleprc" placeholder="45"></input>
+          </div>
+
+          <div class="form-row">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating">
+              <option value="5" selected>5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 stars</option>
+            </select>
+          </div>
+        </div>
+      </form> -->
+    </div>
+
+    <div class="form-row">
+      <button id="create__btn">Create</button>
+    </div>
+
+    <div id="cards"></div>
+  </body>
+  <script>
+    let formNumber = prompt('Type the number of cards', 'from 1 to 3');
+
+    form = '';
+
+    for (let formBlock = 1; formBlock <= formNumber; formBlock++) {
+      form += `<form name="my">
+            <div class="stripes-block"></div>
+            <div class="form-inner">
+              <div class="form-row">
+                <label for="cinema">Choose the cinema</label>
+                <select id="cinema" name="msource">
+                  <option value="pets.png" selected>The Secret Life of Pets 2</option>
+                  <option value="toy4.jpg">Toy Story 4</option>
+                  <option value="ferd.jpg">Ferdinand</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="name">Cinema name</label>
+                <input type="text" name="name" value="" placeholder="The Secret Life of Pets 2" required></input>
+              </div>
+              <div class="form-row">
+                <label for="fullprice">Full price, BYN</label>
+                <input type="text" name="fullprice" placeholder="19" required></input>
+              </div>
+
+              <div class="form-row">
+                <label for="onsale">Is it on Sale?</label>
+                <select id="sale" name="onsale">
+                  <option value="true" selected>Yes (fill the % below)</option>
+                  <option value="false">No (skip next line)</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="saleprc">Sale, %</label>
+                <input type="text" name="saleprc" placeholder="45"></input>
+              </div>
+
+              <div class="form-row">
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating">
+                  <option value="5" selected>5 stars</option>
+                  <option value="4">4 stars</option>
+                  <option value="3">3 stars</option>
+                  <option value="2">2 stars</option>
+                  <option value="1">1 stars</option>
+                </select>
+              </div>
+            </div>
+          </form>`;
+
+      container.innerHTML = form;
+    }
+
+    let createBtn = document.getElementById('create__btn');
+
+    createBtn.addEventListener('click', function () {
+      let k = '';
+      for (i = 0; i < formNumber; i++) {
+        let msource = document.forms[i].msource.value;
+        let name = document.forms[i].name.value;
+        let fullprice = Math.floor(document.forms[i].fullprice.value);
+        let saleprc = document.forms[i].saleprc.value;
+        let onsale = document.forms[i].onsale.value;
+        let rating = document.forms[i].rating.value;
+
+        let saleprice = Math.floor(fullprice - (fullprice * saleprc) / 100);
+
+        saleImg = 'sale.png';
+        isSalePrice = 'inline-block';
+        onlyFullPrice = '';
+        if (onsale == 'false') {
+          saleImg = '';
+          isSalePrice = 'none';
+          onlyFullPrice =
+            'font-size: 30px; text-decoration: none; color: #000;';
+        }
+
+  
+        k += `<div id="card">
+            <div id="poster">
+            <img class="main" src="images/${msource}" alt="" />
+            <img class="blue" src="images/blueray.png" alt="" />
+            <img id="saleimg" src="images/${saleImg}" alt="" />
+          </div>
+
+            <h1>${name}</h1>
+            <div id="allprice">
+              <div style="display: ${isSalePrice};">${saleprice},00 руб.</div><div style="${onlyFullPrice}">${fullprice},00 руб.</div>
+            </div>
+
+          <div id="rank">
+            <span class="material-icons"> star </span>
+            <span class="material-icons"> star </span>
+            <span class="material-icons"> star </span>
+            <span class="material-icons"> star_half </span>
+            <span class="material-icons"> star_border </span>
+          </div>
+          <a href="#"><img class="btn" src="images/btnpet.jpg" alt="" /></a>
+          </div>`;
+
+          // STARS loading...
+      
+        // END STARS
+
+        cards.innerHTML = k;
+      }
+    });
+  </script>
+</html>
