@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABCD</title>
+    <style>
+      #btn {
+        width: 200px;
+        height: 30px;
+        border: 2px solid #000;
+        border-radius: 30px;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <p>Alphabet</p>
+      <section>
+        <p>A B C D E F G</p>
+        <p>come on out and play with me.</p>
+        <p>H I J</p>
+        <p>come and play.</p>
+        <p>K L M</p>
+        <p>come with them.</p>
+        <p>N O P</p>
+        <p>near the tree.</p>
+        <p>Q R S T U V</p>
+        <p>Oh, how happy we will be.</p>
+        <p>W X Y Z</p>
+        <p>Lot's of fun for you and me.</p>
+      </section>
+      <button id="btn">Click!</button>
+
+      <div id="result"></div>
+    </article>
+
+    <script>
+      function alphabet() {
+        let letters = document.querySelectorAll('section p:nth-child(odd)'),
+          s = '';
+
+        for (let letter of letters) {
+          s += letter.innerHTML + ' ';
+        }
+        result.innerHTML = s;
+
+        let sec = document.getElementsByTagName('section')[0];
+        let par = sec.getElementsByTagName('p');
+
+        for (i = 0; i <= par.length; i++) {
+          par[i].style.cssText = `
+            border: 1px solid #2e3332;
+            border-radius: 30px;
+            font-size: 22px;
+            background-color: #2e3332;
+            color: #cab3c1;
+            text-align: center;
+            padding: 10px`;
+        }
+
+        // document.getElementById('btn').style.display = 'none';
+      }
+
+      btn.addEventListener('click', alphabet);
+    </script>
+  </body>
+</html>
