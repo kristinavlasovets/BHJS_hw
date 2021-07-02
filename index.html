@@ -4,189 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <style>
-      section {
-        width: 550px;
-        height: 400px;
-        margin: auto;
-        transition: 0.3s;
-      }
-
-      section:hover {
-        filter: brightness(70%);
-      }
-
-      .material-icons {
-        font-size: 70px;
-        color: #fff;
-        transition: 0.6s;
-      }
-
-      div {
-        position: relative;
-        width: 70px;
-      }
-
-      #prev {
-        top: -250px;
-      }
-      #next {
-        top: -320px;
-        left: 480px;
-      }
-      .material-icons:hover {
-        color: aqua;
-      }
-      .titles {
-        width: 550px;
-        height: 150px;
-        margin: auto;
-        background-color: rgba(126, 126, 126, 0.9);
-        position: relative;
-        top: -300px;
-      }
-      #title1,
-      #title2 {
-        width: 550px;
-        padding: 15px;
-        color: #fff;
-        font-size: 1.6em;
-        margin: auto;
-      }
-      #flag {
-        display: block;
-        border: 2px #fff solid;
-        width: 200px;
-        height: 40px;
-        top: -680px;
-        left: 20px;
-        text-align: center;
-        color: #fff;
-        font-size: 1.8em;
-      }
-      #sublink {
-        text-decoration: none;
-      }
-      #sublink :hover {
-        color: rgb(0, 0, 0);
-      }
-    </style>
+    <title>HW11_2
+    </title>
   </head>
-  <body onload="timerId = setTimeout('changePic()', 2000)">
-    <section
-      onmouseover="stop()"
-      onmouseout="timerId = setTimeout('changePic()', 2000)"
-    >
-      <a href="javascript:lnk()">
-        <img id="pics" src="images/img1b.jpg" alt=""
-      /></a>
-
-      <div id="prev">
-        <a href="javascript:bc()"
-          ><span class="material-icons"> navigate_before </span></a
-        >
-      </div>
-
-      <div id="next">
-        <a href="javascript:fr()"
-          ><span class="material-icons"> navigate_next </span></a
-        >
-      </div>
-
-      <div class="titles">
-        <div id="title1"></div>
-        <a id="sublink" href="#"><div id="title2"></div></a>
-      </div>
-
-      <div id="flag"></div>
-    </section>
-
+  <body>
     <script>
-      let n = 1,
-        p = 6;
+      
+        let body = document.getElementsByTagName('body');
+        let tab = document.createElement('table');
+        tab.setAttribute('border', '1');
+        let tabBody = document.createElement('tbody');
 
-      to = new Array(p);
-      to[1] = 'https://www.google.com/';
-      to[2] = 'https://yandex.by/';
-      to[3] = 'https://mail.ru/';
-      to[4] = 'https://nytimes.com/';
-      to[5] = 'https://bbc.com/';
-      to[6] = 'https://vogue.com/';
+        let row = 5,
+          data = 3;
 
-      tit = new Array(p);
-      tit[1] = 'Title 1';
-      tit[2] = 'Title 2';
-      tit[3] = 'Title 3';
-      tit[4] = 'Title 4';
-      tit[5] = 'Title 5';
-      tit[6] = 'Title 6';
+        for (let i = 0; i < row; i++) {
+          let tr = document.createElement('tr');
+          for (let j = 0; j < data; j++) {
+            let td = document.createElement('td');
+            td.style = `width: 100px;
+                        height: 100px;
+                        text-align: center;
+                        background-color: #D0F0FF`;
+            td.innerHTML = `Cell ${i + j}`;
 
-      subtit = new Array(p);
-      subtit[1] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 1';
-      subtit[2] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 2';
-      subtit[3] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 3';
-      subtit[4] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 4';
-      subtit[5] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 5';
-      subtit[6] =
-        ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Subtitle 6';
+            tr.append(td);
+          }
+          tabBody.append(tr);
+        }
+        tab.append(tabBody);
+        document.body.append(tab);
 
-      function lnk() {
-        location.href = to[n];
-      }
 
-      function changePic() {
-        if (++n > p) n = 1;
 
-        let title1 = document.getElementById('title1');
-        let title2 = document.getElementById('title2');
-        title1.innerHTML = tit[n];
-        title2.innerHTML = subtit[n];
-
-        pics.src = `images/img${n}b.jpg`;
-
-        let flagText2 = to[n].replace('/www.', '/');
-        let flagText1 = flagText2.substring(8);
-        let flagText = flagText1.slice(0, -1);
-        let flagBox = document.getElementById('flag');
-        flag.innerHTML = flagText;
-
-        timerId = setTimeout(changePic, 2000);
-      }
-      function stop() {
-        clearTimeout(timerId);
-      }
-
-      function bc() {
-        if (n > 1) n--;
-        else n = p;
-        pics.src = `images/img${n}b.jpg`;
-
-        let title1 = document.getElementById('title1');
-        let title2 = document.getElementById('title2');
-        title1.innerHTML = tit[n];
-        title2.innerHTML = subtit[n];
-      }
-
-      function fr() {
-        if (n >= p) n = 1;
-        else n++;
-        pics.src = `images/img${n}b.jpg`;
-
-        let title1 = document.getElementById('title1');
-        let title2 = document.getElementById('title2');
-        title1.innerHTML = tit[n];
-        title2.innerHTML = subtit[n];
-      }
+        let tdInner = document.querySelectorAll('td')
+        setTimeout(() => tdInner.forEach(elem => elem.innerHTML = ''), 2000)
+        setTimeout(() => tdInner.forEach(elem => elem.remove()), 4000)
+        let tr = document.querySelectorAll('tr')
+        console.log(tr)
+        setTimeout(() => tr.forEach(elem => elem.remove()), 6000)
+        setTimeout(() => tab.remove(), 8000);
+  
     </script>
   </body>
 </html>
